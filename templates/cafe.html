@@ -16,9 +16,29 @@
       <h1>All Cafes</h1>
 
 	  <table class="table">
-          <!-- This is where you will write the code to render a Bootstrap 
-          Table that contains all the information from the 
-          cafe-data.csv file. -->
+          <thead>
+            <tr>
+                <th scope="col">Cafe</th>
+              <th scope="col">Beverage</th>
+              <th scope="col">Location</th>
+                <th scope="col">Beverage Rating</th>
+                <th scope="col">Wifi Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+
+                {% for cafe in cafes %}
+                 <tr>
+              <td>{{cafe[0]}}</td>
+                     <td>{{cafe[1]}}</td>
+                     <td><a href="{{cafe[2]}}" target="_blank">Map Link</a></td>
+                     <td>{{cafe[3]}}</td>
+                     <td>{{cafe[4]}}</td>
+
+            </tr>
+          {% endfor %}
+
+          </tbody>
   	  </table>
 
       <p><a href="{{ url_for('index') }}">Return to index page</a></p>
